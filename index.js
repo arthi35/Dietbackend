@@ -1,4 +1,5 @@
 // const express = require('express')
+import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import { MongoClient } from "mongodb";
@@ -8,7 +9,7 @@ console.log(process.env.MONGO_URL);
 const app = express()
 
 // const PORT=4000;
-const PORT=process.env.PORT
+const PORT=process.env.PORT;
 const diets=[{
     "id":"100",
     "name":"Banana",
@@ -72,6 +73,7 @@ const diets=[{
         "benifits": "The rich protein food is Sprouts and it was very low in cost.It is the best food for the body builders to bring their body into an core",
         "chart":"https://html.scirp.org/file/3-6902673x4.png"
     }]
+    app.use(cors());
 app.use(express.json());
 // const MONGO_URL="mongodb://localhost";
 const MONGO_URL=process.env.MONGO_URL;
